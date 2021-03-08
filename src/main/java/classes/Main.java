@@ -14,5 +14,7 @@ public class Main {
         for (Field field : fields) {
             System.out.println(field.getType() + " " + field.getName());
         }
+        Object object = aClass.newInstance();
+        System.out.println(object);
     }
     }

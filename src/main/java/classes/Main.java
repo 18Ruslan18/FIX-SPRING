@@ -1,5 +1,6 @@
 package classes;
 
+import java.lang.reflect.Constructor;
 import java.lang.reflect.Field;
 import java.util.Scanner;
 
@@ -14,7 +15,17 @@ public class Main {
         for (Field field : fields) {
             System.out.println(field.getType() + " " + field.getName());
         }
-        Object object = aClass.newInstance();
-        System.out.println(object);
+        //Object object = aClass.newInstance();
+        //System.out.println(object);
+        Class types[] = new Class[fields.length];
+
+        for (int i = 0; i < types.length; i++) {
+            types[i] = fields[i].getType();
+        }
+        Constructor constructor = aClass.getDeclaredConstructor(types);
+        for (Class parameterType : constructor.getParameterTypes()) {
+            System.out.print(parameterType.getName() + " ");
+        }
+
     }
     }

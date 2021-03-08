@@ -15,5 +15,11 @@ public class Main {
         System.out.println(someObject.someField);
         someField.set(someObject, 777);
         System.out.println(someObject.someField);
+
+        Field privateField = someClassAsClass.getDeclaredField("somePrivate");
+        System.out.println(privateField.getName());
+        privateField.setAccessible(true);
+        privateField.set(someObject, "Marsel");
+        System.out.println(someObject.getSomePrivate());
     }
 }

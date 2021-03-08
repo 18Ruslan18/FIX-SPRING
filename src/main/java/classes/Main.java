@@ -26,6 +26,17 @@ public class Main {
         for (Class parameterType : constructor.getParameterTypes()) {
             System.out.print(parameterType.getName() + " ");
         }
-
+        Integer intValue = 0;
+        String stingValue = "";
+        for (int i = 0; i < types.length; i++) {
+            if (types[i].getName().equals("int")) {
+                intValue = scanner.nextInt();
+            } else if (types[i].getName().equals("java.lang.String")) {
+                stingValue = scanner.next();
+            }
+        }
+        Object arguments[] = {intValue, stingValue};
+        Object object = constructor.newInstance(arguments);
+        System.out.println(object);
     }
     }
